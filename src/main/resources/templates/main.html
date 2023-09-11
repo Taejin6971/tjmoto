@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+		#main {
+			float: right;
+			width: 1075px;
+			height: 1000px;
+		}
+
+		#slideShow {
+			height: 500px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#slides {
+			position: absolute;
+			top: 5px;
+			width: 2500px;
+			transition: left 0.5s ease-out;
+		}
+
+		#slides img {
+			width: 1074px;
+		}
+
+		#slides li:not(:last-child) {
+			float: left;
+			margin-right: 100px;
+		}
+
+		#slides li {
+			float: left;
+		}
+
+		#controller span {
+			position: absolute;
+			background-color: transparent;
+			color: black;
+			text-align: center;
+			border-radius: 50%;
+			padding: 10px 20px;
+			top: 50%;
+			font-size: 30px;
+			cursor: pointer;
+		}
+
+		#controller span {
+			color: blue;
+		}
+
+		#prev {
+			left: 10px;
+		}
+
+		#next {
+			right: 10px;
+		}
+
+		#main #new_products_box #new_products,
+		#main #review_best_box #review_best {
+			padding: 20px 0 5px 0;
+			font-size: 15px;
+			float: left;
+		}
+
+		#main #new_products_box #new_products #new_products_text,
+		#main #review_best_box #review_best #review_best_text {
+			color: red;
+		}
+
+		#main #more {
+			float: right;
+			padding-top: 20px;
+			font-size: 15px;
+		}
+
+		#main #item_box {
+			padding: 15px;
+		}
+
+		#main #item {
+			float: left;
+			margin: 0 39px 10px 39px;
+		}
+
+		#main #item img {
+			width: 180px;
+		}
+
+		#main #item_info {
+			font-weight: bold;
+		}
+
+		#main #item_price {
+			font-weight: bold;
+			color: rgb(50, 50, 253);
+		}
+
+		.margin {
+			margin-bottom: 30px;
+		}
+
+		.card {
+			width: 200px;
+			margin-left: 50px;
+			margin-bottom: 30px;
+			border: 0px
+		}
+
+		.card-text {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+	</style>
+</th:block>
+
+<div layout:fragment="content">
+	<div id="main">
+
+		<div id="slideShow">
+			<ul id="slides">
+				<li><img src="img/main_benner.png"></li>
+				<li><img src="img/main_benner01.png"></li>
+				<li><img src="img/main_benner02.png"></li>
+				<li><img src="img/main_benner03.png"></li>
+			</ul>
+			<p id="controller">
+				<span id="prev">&lang;</span>
+				<span id="next">&rang;</span>
+			</p>
+		</div>
+		<div id="new_products_box">
+			<div>
+				<div id="new_products">
+					<span id="new_products_text">NEW PRODUCTS</span> <span>신규 상품</span>
+				</div>
+				<div id="more"><a href="helmet">more</a></div>
+				<div class="clear"></div>
+				<div class="line"></div>
+			</div>
+			<div id="item_box">
+				<div class="row">
+					<th:block th:each="item, status: ${items.getContent()}">
+						<div>
+							<div class="card">
+								<a th:href="'/item/' +${item.id}" class="text-dark">
+									<img th:src="${item.imgUrl}" class="card-img-top" th:alt="${item.itemNm}">
+									<div class="card-body">
+										<h4 class="card-title">[[${item.itemNm}]]</h4>
+										<p class="card-text">[[${item.itemDetail}]]</p>
+										<h3 class="card-title text-danger">[[${item.price}]]원</h3>
+									</div>
+								</a>
+							</div>
+						</div>
+					</th:block>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		const slides = document.querySelector('#slides');
+		const slideImg = document.querySelectorAll('#slides li');
+		let currentIdx = 0;
+		const slideCount = slideImg.length;
+		const prev = document.querySelector('#prev');
+		const next = document.querySelector('#next');
+		const slideWidth = 3000;
+		const slideMargin = 100;
+
+		slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+
+		function moveSlide(num) {
+			slides.style.left = -num * 1174 + 'px';
+			currentIdx = num;
+		}
+
+		prev.addEventListener('click', function () {
+			if (currentIdx !== 0) moveSlide(currentIdx - 1);
+		});
+
+		next.addEventListener('click', function () {
+			if (currentIdx !== slideCount - 1) {
+				moveSlide(currentIdx + 1);
+			}
+		});
+	</script>
+
+</div>
+
+</html>

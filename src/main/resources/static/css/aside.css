@@ -1,0 +1,54 @@
+aside #aside {
+    float: left;
+    float: left;
+    width: 220px;
+    padding-top: 0px;
+}
+
+aside #aside_menu li {
+    padding: 5px;
+}
+
+aside #aside_box{
+    padding-left: 10px;
+}
+
+#aside .subbtn {
+    display: none;
+}
+
+#aside .aside_menu {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#aside .aside_main_btn {
+    font-size: 19px;
+    padding: 10px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+
+[id$="-toggle"] {
+    margin-right: 15px;
+}
+
+aside #kakao {
+    background: url(../img/kakao_benner.png) no-repeat;
+    background-size: 220px;
+    height: 60px;
+    padding: 10px 0 0 50px;
+    font-weight: bold;
+}
+
+aside #facebook {
+    background: url(../img/facebook_benner.png) no-repeat;
+    background-size: 220px;
+    height: 60px;
+    padding: 10px 0 0 50px;
+    font-weight: bold;
+    color: white;
+}

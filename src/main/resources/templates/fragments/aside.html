@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="aside">
+	<aside>
+		<div id="aside">
+			<div id="aside_box">
+				<div class="aside_menu">
+					<button class="aside_main_btn" id="main_btn-1"><span
+							id="main_btn-1-toggle">+</span><span>HELMET</span></button>
+					<div class="subbtn" id="subbtn-1">
+						<ul id="aside_menu">
+							<li><a href="/helmet">풀페이스</a></li>
+							<li><a href="#">오픈페이스</a></li>
+							<li><a href="#">오프로드헬멧</a></li>
+							<li><a href="#">시스템헬멧</a></li>
+							<li><a href="#">헬멧 악세사리</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="aside_menu">
+					<button class="aside_main_btn" id="main_btn-2"><span
+							id="main_btn-2-toggle">+</span><span>JACKET</span></button>
+					<div class="subbtn" id="subbtn-2">
+						<ul id="aside_menu">
+							<li><a href="#">여름용 자켓</a></li>
+							<li><a href="#">겨울용 자켓</a></li>
+							<li><a href="#">3계절용 자켓</a></li>
+							<li><a href="#">가죽자켓</a></li>
+							<li><a href="#">조끼</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="aside_menu">
+					<button class="aside_main_btn" id="main_btn-3"><span
+							id="main_btn-3-toggle">+</span><span>PANTS</span></button>
+					<div class="subbtn" id="subbtn-3">
+						<ul id="aside_menu">
+							<li><a href="#">여름용 팬츠</a></li>
+							<li><a href="#">겨울용 팬츠</a></li>
+							<li><a href="#">3계절용 팬츠</a></li>
+							<li><a href="#">가죽 팬츠</a></li>
+							<li><a href="#">데님 팬츠</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="aside_menu">
+					<button class="aside_main_btn" id="main_btn-4"><span
+							id="main_btn-4-toggle">+</span><span>BOOTS</span></button>
+					<div class="subbtn" id="subbtn-4">
+						<ul id="aside_menu">
+							<li><a href="#">레이싱용 부츠</a></li>
+							<li><a href="#">라이딩용 부츠</a></li>
+							<li><a href="#">투어링용 부츠</a></li>
+							<li><a href="#">부츠악세사리</a></li>
+							<li><a href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="aside_menu">
+					<button class="aside_main_btn" id="main_btn-5"><span
+							id="main_btn-5-toggle">+</span><span>GLOVES</span></button>
+					<div class="subbtn" id="subbtn-5">
+						<ul id="aside_menu">
+							<li><a href="#">봄/가을 글러브</a></li>
+							<li><a href="#">여름용 글러브</a></li>
+							<li><a href="#">겨울용 글러브</a></li>
+							<li><a href="#">롱 글러브</a></li>
+							<li><a href="#">이너 글러브</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="aside_menu">
+					<button class="aside_main_btn" id="main_btn-6"><span
+							id="main_btn-6-toggle">+</span><span>ACC</span></button>
+					<div class="subbtn" id="subbtn-6">
+						<ul id="aside_menu">
+							<li><a href="#">보호대</a></li>
+							<li><a href="#">고글</a></li>
+							<li><a href="#">레인웨어(우비)</a></li>
+							<li><a href="#">가방</a></li>
+							<li><a href="#">방한용품</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="aside_menu">
+					<button class="aside_main_btn" id="main_btn-7"><span id="main_btn-7-toggle"></span><span><a
+								href="#">Q&A</a></span></button>
+				</div>
+			</div>
+			<div id="aside_benner">
+				<a href="">
+					<div id="kakao">
+						<div>Tjmoto kakao<span>tlak</span></div>
+						<div>티제이모토 카카오톡</div>
+					</div>
+				</a>
+				<a href="#">
+					<div id="facebook">
+						<div>Tjmoto facebook</div>
+						<div>티제이모토 페이스북</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</aside>
+
+	<script>
+		const items = document.querySelectorAll('.aside_main_btn');
+
+		function openCloseSubbtn() {
+			const subbtnId = this.id.replace('main_btn', 'subbtn');
+
+			if (document.getElementById(subbtnId).style.display === 'block') {
+				document.getElementById(subbtnId).style.display = 'none';
+				document.getElementById(this.id + '-toggle').textContent = '+';
+			} else {
+				document.getElementById(subbtnId).style.display = 'block';
+				document.getElementById(this.id + '-toggle').textContent = '-';
+			}
+		}
+
+		items.forEach(item => item.addEventListener('click', openCloseSubbtn));
+	</script>
+</div>
+
+</html>

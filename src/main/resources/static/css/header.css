@@ -1,0 +1,56 @@
+header #header {
+    background-color: white;
+    width: 1300px;
+    /* position: absolute; */
+    /* z-index: 2; */
+}
+
+header #main_logo img {
+    float: left;
+    height: 80px;
+    width: 300px;
+    margin: 10px;
+}
+
+header #top_login {
+    text-align: right;
+    padding: 10px;
+}
+
+header #top_login li {
+    display: inline-block;
+    padding: 2px;
+}
+
+header #main_box {
+    border-bottom: 1px solid #444;
+    text-align: center;
+}
+
+header #menu {
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+header #menu>li {
+    /* border: 1px solid red; */
+    width: 16.66%;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+header #menu #submenu>li {
+    /* font-size: 12px; */
+}
+
+header #menu #submenu {
+    /* height: 0;
+    overflow: hidden;
+    transition: 0.5s; */
+}
+
+header #menu>li:hover #submenu {
+    /* height: 200px; */
+}

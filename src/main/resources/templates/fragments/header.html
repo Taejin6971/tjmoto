@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="header">
+
+	<header>
+		<div id="header">
+			<div id="main_logo">
+				<a href="/"><img src="../../img/main_logo.png"></a>
+			</div>
+			<div id="top_login">
+				<ul>
+					<li sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+						<a href="/admin/item/new">상품등록</a>
+					</li>
+					<li sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+						<a href="/admin/items">상품관리</a>
+					</li>
+					<li sec:authorize="isAuthenticated()">
+						<a href="/cart">장바구니</a>
+					</li>
+					<li sec:authorize="isAuthenticated()">
+						<a href="/orders">구매이력</a>
+					</li>
+					<li sec:authorize="isAnonymous()">
+						<a href="/members/login">로그인</a>
+					</li>
+					<li sec:authorize="isAuthenticated()">
+						<a href="/members/logout">로그아웃</a>
+					</li>
+					<li sec:authorize="isAnonymous()">
+						<a href="/members/new">회원가입</a>
+					</li>
+					<li sec:authorize="isAuthenticated()">
+						<a href="/members/membermodify">회원정보수정</a>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div id="main_box">
+				<ul id="menu">
+					<li>
+						<a href="/helmet">HELMET</a>
+					</li>
+					<li>
+						<a href="#">JACKET</a>
+					</li>
+					<li>
+						<a href="#">PANTS</a>
+					</li>
+					<li>
+						<a href="#">BOOTS</a>
+					</li>
+					<li>
+						<a href="#">GLOVES</a>
+					</li>
+					<li>
+						<a href="#">ACC</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+</div>
+
+</html>
